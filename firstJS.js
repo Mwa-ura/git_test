@@ -15,15 +15,15 @@ console.log(confusion);
 console.log(string);
 
 while (scoops > 0) {
-    console.log('More icecream!');
+    console.log('More ice cream!');
     scoops -=1;
 }
-alert('Life without icecream is obese free!');
+alert('Life without ice cream is obese free!');
 
 for (scoops = 10; scoops>0; scoops--) {
-    console.log("More icecream for me!");
+    console.log("More ice cream for me!");
 }
-alert('No more icecream!')
+alert('No more ice cream!')
 // Snippet 1
 var count = 0; 
 for (let i = 0; i<5; i++) {
@@ -47,6 +47,19 @@ for (var batteries = 10; batteries>0; batteries--) {
 
 //snippet 4 
 for (scoops = 0; scoops<10; scoops++) {
-    console.log("There is more icecream for all");
+    console.log("There is more ice cream for all");
 }
-alert("Enough for today!")
+alert("Enough for today!") 
+
+for (reps = 0; reps<30; reps++) {
+    console.log("More push ups!");
+}
+alert(`You made it son ${reps} done!`); 
+
+var reps = 0;
+
+while (reps<10) {
+    console.log("More bench press!");
+    reps +=1;
+}
+alert(`${reps} bench press done!`);
