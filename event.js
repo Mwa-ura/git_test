@@ -4,5 +4,7 @@ function init() {
     button.onclick = handleButtonClick;
 }
 function handleButtonClick() {
-    alert("Button Clicked");
+    var textInput = document.getElementById("songInputText");
+    var songName = input.text;
+    alert("adding "+ songName);
 }
