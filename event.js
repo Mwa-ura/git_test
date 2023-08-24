@@ -5,6 +5,6 @@ function init() {
 }
 function handleButtonClick() {
     var textInput = document.getElementById("songInputText");
-    var songName = input.text;
+    var songName = textInput.value;
     alert("adding "+ songName);
 }
