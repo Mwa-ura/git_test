@@ -2,6 +2,7 @@ window.onload = init;
 function init() { 
     var button = document.getElementById("addButton");
     button.onclick = handleButtonClick;
+    loadPlaylist();
 }
 function handleButtonClick() {
     var textInput = document.getElementById("songInputText");
@@ -10,7 +11,7 @@ function handleButtonClick() {
     if (songName == "") {
         alert("You didn't add a song");
     } else { 
-        alert("adding "+ songName);
+        alert("Adding "+ songName);
     }
     var li = document.createElement("li");
     li.innerHTML = songName;
@@ -19,5 +20,6 @@ function handleButtonClick() {
         return null;
     } else { 
         ul.appendChild(li);
+        save(songName);
     }
 }
