@@ -4,6 +4,19 @@
         <meta charset="utf-8">
         <title>Planets</title>
         <link rel="stylesheet" href="styles.css">
+        <script>
+            var guessInput = document.getElementById("guess");
+            var guess = guessInput.value;
+            var answer = null;
+            var answers = ["Red", "Blue", "Green"]
+            var index = Math.floor(Math.random()* answers.length);
+            if (guess == answers[index]) {
+                answer = "You are right, I was thinking of "+ answers[index];
+            } else {
+                answer = 'Sorry, I was thinking of '+ answers[index];
+            }
+            alert(answer);
+        </script>
         <script src="dom0.js"></script>
     </head>
     <body>
@@ -13,5 +26,9 @@
         <p id="red">Nothing to report</p>
         <h1>Blue Planet</h1>
         <p id="blue">All systems Okay</p>
+        <form>
+            <input type="text" id="guess" placeholder="Guess a color">
+            <input type="button" id="guessButton" value="Check Answer">
+        </form>
     </body>
 </html>
