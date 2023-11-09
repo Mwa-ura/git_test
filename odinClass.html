@@ -15,12 +15,14 @@
             }
             console.log(multiply(12,19));
             // test 3
-            /* function capitalize(string) {
-              //  return 
-            } */
+            function capitalize(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
+            } 
+            const word = prompt("Enter a word");
+            console.log(capitalize(word));
             // text 4 
             function lastLetter(string0) {
-                return string0[-1];
+                return string0.slice(-1);
             }
             console.log(lastLetter("Mwaura"));
         </script>
