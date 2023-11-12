@@ -6,23 +6,34 @@
     </head>
     <body>
         <script>
+            
+        </script>
+        <script>
             function checkResults(number) {
               for (let i=1; i <= number; i++) {
                 if (i%3 == 0 && i%5 == 0) {
-                    console.log('FizzBuzz');
+                    var p = document.createElement('p');
+                    p.innerHTML = 'FizzBuzz';
+                    document.body.appendChild(p);
                 }
                 else if(i%3 == 0) {
-                    console.log('Fizz');
+                    var p = document.createElement('p');
+                    p.innerHTML = 'Fizz';
+                    document.body.appendChild(p);
                 } 
                 else if(i%5 == 0) {
-                    console.log('Buzz')
+                    var p = document.createElement('p');
+                    p.innerHTML = 'Buzz';
+                    document.body.appendChild(p);
                 } 
                 else {
-                    console.log(i)
+                    var p = document.createElement('p');
+                    p.innerHTML = i;
+                    document.body.appendChild(p);
                 }   
               }  
             }
-            checkResults(parseInt(prompt('Enter a NUMBER:')))
+            checkResults(parseInt(prompt('Enter a NUMBER:')));
         </script>
     </body>
 </html>
