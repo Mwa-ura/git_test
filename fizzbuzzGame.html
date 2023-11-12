@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Fizz Buzz Game</title>
+    </head>
+    <body>
+        <script>
+            function checkResults(number) {
+              for (let i=1; i <= number; i++) {
+                if (i%3 == 0 && i%5 == 0) {
+                    console.log('FizzBuzz');
+                }
+                else if(i%3 == 0) {
+                    console.log('Fizz');
+                } 
+                else if(i%5 == 0) {
+                    console.log('Buzz')
+                } 
+                else {
+                    console.log(i)
+                }   
+              }  
+            }
+            checkResults(parseInt(prompt('Enter a NUMBER:')))
+        </script>
+    </body>
+</html>
