@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Testing JavaScript Functions</title>
+    </head>
+    <body>
+        <script>
+            function addOne(digit) {
+                return digit + 1;
+            }
+            var plusOne = addOne;
+            var results = plusOne(2);
+            console.log(results);
+            // test 2
+            var test2 = function(num) {
+                return num + num**2;
+            }
+            var result = test2(2);
+            console.log(result);
+        </script>
+        <!-- JavaScripts Objects -->
+        <script>
+            var siba = {
+                name: 'Siba',
+                weight: 25,
+                breed: 'Umbwa Koko',
+                loves: ['walks', 'playing', 'Jumping'],
+                bark: function () {
+                    alert('Woof');
+                }
+            }
+            function bark(dog) {
+                if (dog.weight >= 25) {
+                    console.log('Woof');
+                }
+                else {
+                    console.log('Yip');
+                }
+            }
+            bark(siba);
+
+            function likes(dog) {
+              var likes = dog.loves; 
+              //console.log(likes); 
+              var likeStrings = 'Siba likes';
+              for (let i=0; i<likes.length; i++) {
+                likeStrings += " " + likes[i];
+                console.log(likeStrings);
+              }
+              console.log(likeStrings);
+            }
+            likes(siba);
+
+            function loseWeight(dog) {
+                dog.weight -= 10
+                return `${dog.name} weight now is ${dog.weight}`
+            }
+            console.log(loseWeight(siba));
+            console.log(siba);
+            siba.bark();
+
+            // <!-- Movie cinema Example -->
+
+            let movie1 = {
+                title: 'Plan 9 from Outer Space',
+                showTimes: ['3:00pm', '7:00pm', '11:00pm'],
+                genre: 'Cult classic',
+                rating: 2,
+                nextShowing: function () {
+                    let now = new Date().getTime();
+                    for (let i=0; i<this.showTimes.length; i++) {
+                        let showTime = getTimeFromString(this.showTimes[i]);
+                        if ((showTime-now) > 0) {
+                            return `Next showing of ${this.title} is ${this.showTimes[i]}`;
+                        }
+                    }
+                    return null;
+                }
+            };
+            let movie2 = {
+                title: 'Forbidden Planet',
+                showTimes: ['5:00pm', '9:00pm'],
+                genre: 'Classic sci-fi',
+                rating: 5,
+                nextShowing: function () {
+                    let now = new Date().getTime();
+                    for (let i=0; i<this.showTimes.length; i++) {
+                        let showTime = getTimeFromString(this.showTimes[i]);
+                        if ((showTime-now) > 0) {
+                            return `Next showing of ${this.title} is ${this.showTimes[i]}`;
+                        }
+                    }
+                    return null;
+                }
+            };
+            
+            function getTimeFromString(timeString) {
+                let theTime = new Date();
+                console.log(theTime);
+                let time = timeString.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+                theTime.setHours(parseInt(time[1]) + (time[3] ? 12 : 0 ));
+                theTime.setMinutes(parseInt(time[2] || 0));
+                return theTime.getTime();
+            }
+            //var nextShowing = getNextShowing(movie1);
+            console.log(movie2.nextShowing());
+            //console.log(nextShowing);
+            //var nextShowing = getNextShowing(movie2);
+            console.log(movie1.nextShowing());
+        </script>
+
+        <!-- Classes in JavaScripts aka Constructor -->
+        <script>
+            function Dog(name, breed, age, weight) {
+                this.name = name;
+                this.breed = breed;
+                this.age = age;
+                this.weight = weight;
+                this.bark = function () {
+                    if (this.weight > 24) {
+                        console.log(`${this.name} is normal weight`);
+                    }
+                    else {
+                        console.log(`${this.name} is underweight`);
+                    }
+                };
+            }
+            let dog1 = new Dog('Siba', 'Koko', 2, 27);
+            dog1.bark();
+        </script>
+    </body>
+</html>
