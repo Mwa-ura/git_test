@@ -129,5 +129,28 @@
             let dog1 = new Dog('Siba', 'Koko', 2, 27);
             dog1.bark();
         </script>
+
+        <!-- Constructor Exercise (Movie)-->
+        <script>
+            function Movie(title, genre, rating, showTimes) {
+                this.title = title;
+                this.genre = genre;
+                this.rating = rating;
+                this.showTimes = showTimes;
+                this.getNextShowing = function () {
+                    let now = new Date().getTime();
+                    for (let i=0; i<this.showTimes.length; i++) {
+                        let showTime = getTimeFromString(this.showTimes[i]);
+                        if ((showTime - now) > 0) {
+                            return `Next showing of ${this.title} is ${this.showTimes[i]}`;
+                        }
+                    }
+                    return null;
+                    
+                };
+            }
+            let movie3 = new Movie('Colors', 'Crime', 5, ['5:00pm', '9:00pm', '11:00pm']);
+            console.log(movie3.getNextShowing());
+        </script>
     </body>
 </html>
