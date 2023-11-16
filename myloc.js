@@ -3,6 +3,7 @@ var hqCoords = {
     latitude: 47.624851,
     longitude: -122.52099
 };
+var watchId = null;
 
 window.onload = getMyLocation;
 function getMyLocation() {
@@ -62,4 +63,14 @@ function computeDistance(startCoords, destCoords) {
 function degreeToRadians(degrees) {
     let radians = (degrees * Math.PI)/180;
     return radians;
+}
+
+function watchLocation() {
+    watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
+}
+function clearWatch() {
+    if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+    }
 }
