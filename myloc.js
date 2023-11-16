@@ -7,7 +7,10 @@ var hqCoords = {
 window.onload = getMyLocation;
 function getMyLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(displayLocation, displayError);
+        let watchButton = document.getElementById('watch');
+        watchButton.onclick = watchLocation;
+        let clearWatchButton = document.getElementById('clearWatch');
+        clearWatchButton.onclick = clearWatch;
     }
     else {
         console.log("Oops! no geolocation on your machine.")
@@ -19,7 +22,8 @@ function displayLocation(position) {
 
     var div = document.getElementById('location');
     div.innerHTML = `You are at Latitude: ${latitude} and Longitude: ${longitude}`;
-
+    // Test the position accuracy
+    div.innerHTML += ` (with an ${position.coords.accuracy} meters accuracy)`;
     // display the distance difference
     let km = computeDistance(position.coords, hqCoords)
     let distance = document.getElementById('distance');
