@@ -41,7 +41,7 @@ function displayError(error) {
     if (error.code == 0 || error.code == 2) {
         errorMessage += `: ${error.message}`;
     }
-    let div = document.getElementById('location');
+    let div = document.getElementById('location'); 
     div.innerHTML = errorMessage;
 }
 
@@ -66,7 +66,8 @@ function degreeToRadians(degrees) {
 }
 
 function watchLocation() {
-    watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
+    watchId = navigator.geolocation.watchPosition(displayLocation, displayError
+        ,{enableHighAccuracy: true, maximumAge: 60000, timeout: 5000});
 }
 function clearWatch() {
     if (watchId) {
