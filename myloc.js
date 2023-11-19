@@ -4,6 +4,11 @@ var hqCoords = {
     longitude: -122.52099
 };
 var watchId = null;
+var options = {
+    enableHighAccuracy: true,
+    timeout: 100,
+    maximumAge: 0
+}
 
 window.onload = getMyLocation;
 function getMyLocation() {
@@ -23,6 +28,7 @@ function displayLocation(position) {
 
     var div = document.getElementById('location');
     div.innerHTML = `You are at Latitude: ${latitude} and Longitude: ${longitude}`;
+    div.innerHTML += ` found in ${options.timeout} milliseconds.`
     // Test the position accuracy
     div.innerHTML += ` (with an ${position.coords.accuracy} meters accuracy)`;
     // display the distance difference
@@ -43,6 +49,11 @@ function displayError(error) {
     }
     let div = document.getElementById('location'); 
     div.innerHTML = errorMessage;
+    // Inform the user we are searching a location
+    options.timeout += 100;
+    navigator.geolocation.getCurrentPosition(displayLocation, displayError
+        ,options); 
+    div.innerHTML = `... checking out again with timeout: ${options.timeout}`;
 }
 
 // Function to compute two points in a sphere 
@@ -67,7 +78,7 @@ function degreeToRadians(degrees) {
 
 function watchLocation() {
     watchId = navigator.geolocation.watchPosition(displayLocation, displayError
-        ,{enableHighAccuracy: true, maximumAge: 60000, timeout: 5000});
+        ,options);
 }
 function clearWatch() {
     if (watchId) {
